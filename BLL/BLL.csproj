@@ -40,6 +40,7 @@
     <Reference Include="System.Drawing.Common, Version=4.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Drawing.Common.5.0.3\lib\net461\System.Drawing.Common.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Constants\PracticeInfo.cs" />
     <Compile Include="Dtos\EventDto.cs" />
+    <Compile Include="Dtos\EventHistoryDto.cs" />
     <Compile Include="Events\Meeting.cs" />
     <Compile Include="Events\Pub.cs" />
     <Compile Include="Guilds\AssassinGuild.cs" />
@@ -57,6 +59,7 @@
     <Compile Include="Guilds\FoolsGuild.cs" />
     <Compile Include="Guilds\Guild.cs" />
     <Compile Include="Guilds\ThievesGuild.cs" />
+    <Compile Include="Interfaces\IHistoryService.cs" />
     <Compile Include="Interfaces\IMeetingService.cs" />
     <Compile Include="Interfaces\IPlayerService.cs" />
     <Compile Include="Interfaces\IScenarioCreatorService.cs" />
@@ -91,6 +94,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PlayerResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Properties\HistoryResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HistoryResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\HistoryService.cs" />
     <Compile Include="Services\MeetingService.cs" />
     <Compile Include="Services\PlayerService.cs" />
     <Compile Include="Services\ScenarioCreatorService.cs" />
@@ -104,7 +113,7 @@
   <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Properties\NpcsResources.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
+      <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>NpcsResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Images.resx">
@@ -112,7 +121,7 @@
       <LastGenOutput>Images.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Colors.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Colors.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\PubResources.resx">
@@ -122,6 +131,10 @@
     <EmbeddedResource Include="Properties\PlayerResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>PlayerResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\HistoryResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>HistoryResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

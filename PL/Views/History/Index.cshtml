@@ -1,0 +1,46 @@
+﻿@using PL.Properties
+@model PL.Models.EventHistoryViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "History";
+}
+
+@section Styles{
+    <link rel="stylesheet" type="text/css" href="~/Content/game-stylesheet.css" />
+}
+
+<div class="menu">
+    @if (Model.EventsHistory.Count <= 1)
+    {
+        <h2 style="text-align:center">@ScenarioTexts.HasNoEvents</h2>
+    }
+    else
+    {
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Event</th>
+                    <th scope="col">Alive</th>
+                    <th scope="col">Pints of beer</th>
+                    <th scope="col">Budget AM$</th>
+                </tr>
+            </thead>
+            @foreach (var eventHistory in Model.EventsHistory)
+            {
+                <tbody>
+                    <tr class="table-light">
+                        <th scope="row">@eventHistory.Id</th>
+                        <td style="color:@eventHistory.Color">@eventHistory.Name</td>
+                        <td>@eventHistory.PlayerAlive</td>
+                        <td>@eventHistory.Beers</td>
+                        <td>@eventHistory.Budget</td>
+                    </tr>
+                </tbody>
+            }
+        </table>
+    }
+    <br /><br />
+    @Html.ActionLink("Go Home", "Index", "Home", new { area = "" }, new { @class = "btn btn-outline-warning" })
+    <br />
+</div>

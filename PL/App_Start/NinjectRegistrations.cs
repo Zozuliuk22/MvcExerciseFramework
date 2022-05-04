@@ -12,6 +12,7 @@ namespace PL
         {
             Bind<IUnitOfWork>().To<UnitOfWork>();
             Bind<IMeetingService>().To<MeetingService>().InSingletonScope();
+            Bind<IHistoryService>().To<HistoryService>().InSingletonScope();
             Bind<IScenarioCreatorService>().To<ScenarioCreatorService>().InSingletonScope();
         }
     }

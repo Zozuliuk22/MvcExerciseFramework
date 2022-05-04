@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
-using BLL.DTOs;
+using BLL.Dtos;
 using PL.Models;
+using System.Collections.Generic;
 
 namespace Web
 {

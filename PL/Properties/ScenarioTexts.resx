@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="HasNoEvents" xml:space="preserve">
+    <value>There are no events.</value>
+  </data>
   <data name="InstructionsPoint1" xml:space="preserve">
     <value>There are not lots of rules. All that you must know: You have 100 AM$ at the beginning of the game.</value>
   </data>

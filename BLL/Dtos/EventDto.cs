@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace BLL.DTOs
+namespace BLL.Dtos
 {
     public class EventDto
     {

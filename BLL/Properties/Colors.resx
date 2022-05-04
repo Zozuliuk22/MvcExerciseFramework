@@ -120,17 +120,26 @@
   <data name="AssassinsColor" xml:space="preserve">
     <value>#841EA6</value>
   </data>
+  <data name="BeerColor" xml:space="preserve">
+    <value>#E6A80D</value>
+  </data>
   <data name="BeggarsColor" xml:space="preserve">
     <value>#105B20</value>
   </data>
   <data name="Black" xml:space="preserve">
     <value>#000000</value>
   </data>
+  <data name="BudgetColor" xml:space="preserve">
+    <value>#5170AD</value>
+  </data>
   <data name="FoolsColor" xml:space="preserve">
     <value>#BEBB19</value>
   </data>
   <data name="PubColor" xml:space="preserve">
     <value>#A80C0C</value>
+  </data>
+  <data name="ResultMeetingColor" xml:space="preserve">
+    <value>#2DC4A9</value>
   </data>
   <data name="ThievesColor" xml:space="preserve">
     <value>#107ECC</value>

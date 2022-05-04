@@ -6,16 +6,18 @@ using System.Threading.Tasks;
 using BLL.Guilds;
 using System.Reflection;
 using DAL.Interfaces;
-using BLL.DTOs;
+using BLL.Dtos;
 using BLL.Properties;
 using BLL.Interfaces;
 using BLL.Events;
+using System.Windows.Forms;
 
 namespace BLL.Services
 {
     public class ScenarioCreatorService : IScenarioCreatorService
     {
         private readonly IMeetingService _meetingService;
+        private readonly IHistoryService _historyService;
 
         private Player _currentPlayer;
         private Pub _pub;
@@ -24,11 +26,14 @@ namespace BLL.Services
         private bool _isPub;
         private string _meetingResult;
 
-        public ScenarioCreatorService(IMeetingService meetingService)
-        {           
+        public ScenarioCreatorService(IMeetingService meetingService, IHistoryService historyService)
+        { 
+            _historyService = historyService; 
             _meetingService = meetingService;
             _pub = new Pub();   
             _currentPlayer = new Player("Viktor");
+
+            CreateStartEventHistory();
         }
 
         private void CreateRandomGuildMeetingOrBar()
@@ -84,6 +89,7 @@ namespace BLL.Services
             if (_isPub)
                 _meetingResult = _pub.PlayGame(_currentPlayer);
             _meetingResult = _currentMeeting.Guild.PlayGame(_currentPlayer);
+            CreateEventHistory();
         }
 
         public void Skip()
@@ -91,7 +97,30 @@ namespace BLL.Services
             if (_isPub)
                 _meetingResult = _pub.LoseGame();
             _meetingResult = _currentMeeting.Guild.LoseGame(_currentPlayer);
+            CreateEventHistory();
 
+        }
+
+        private void CreateEventHistory()
+        {
+            var newEvent = new EventHistoryDto();
+            newEvent.Name = _isPub ? _pub.ToString() : _currentMeeting.Guild.ToString();
+            newEvent.Color = _isPub ? _pub.Color : _currentMeeting.Guild.GuildColor;
+            newEvent.PlayerAlive = _currentPlayer.IsAlive ? DialogResult.Yes.ToString() : DialogResult.No.ToString();
+            newEvent.Beers = _currentPlayer.CurrentBeers;
+            newEvent.Budget = _currentPlayer.CurrentBudget;
+            _historyService.Add(newEvent);
+        }
+
+        private void CreateStartEventHistory()
+        {
+            var newEvent = new EventHistoryDto();
+            newEvent.Name = HistoryResources.StartEventHistoryName;
+            newEvent.Color = Colors.Black;
+            newEvent.PlayerAlive = _currentPlayer.IsAlive ? DialogResult.Yes.ToString() : DialogResult.No.ToString();
+            newEvent.Beers = _currentPlayer.CurrentBeers;
+            newEvent.Budget = _currentPlayer.CurrentBudget;
+            _historyService.Add(newEvent);
         }
 
         public void UseEnteredFee(decimal fee)
@@ -106,6 +135,7 @@ namespace BLL.Services
         public void Reset()
         {
             _meetingService.Reset();
+            _historyService.Reset();
             _pub.Reset();
             _currentPlayer.Reset();
             _meetingResult = String.Empty;

@@ -22,7 +22,7 @@ namespace BLL.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Colors {
+    public class Colors {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace BLL.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BLL.Properties.Colors", typeof(Colors).Assembly);
@@ -51,7 +51,7 @@ namespace BLL.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,16 +63,25 @@ namespace BLL.Properties {
         /// <summary>
         ///   Looks up a localized string similar to #841EA6.
         /// </summary>
-        internal static string AssassinsColor {
+        public static string AssassinsColor {
             get {
                 return ResourceManager.GetString("AssassinsColor", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to #E6A80D.
+        /// </summary>
+        public static string BeerColor {
+            get {
+                return ResourceManager.GetString("BeerColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to #105B20.
         /// </summary>
-        internal static string BeggarsColor {
+        public static string BeggarsColor {
             get {
                 return ResourceManager.GetString("BeggarsColor", resourceCulture);
             }
@@ -81,16 +90,25 @@ namespace BLL.Properties {
         /// <summary>
         ///   Looks up a localized string similar to #000000.
         /// </summary>
-        internal static string Black {
+        public static string Black {
             get {
                 return ResourceManager.GetString("Black", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to #5170AD.
+        /// </summary>
+        public static string BudgetColor {
+            get {
+                return ResourceManager.GetString("BudgetColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to #BEBB19.
         /// </summary>
-        internal static string FoolsColor {
+        public static string FoolsColor {
             get {
                 return ResourceManager.GetString("FoolsColor", resourceCulture);
             }
@@ -99,16 +117,25 @@ namespace BLL.Properties {
         /// <summary>
         ///   Looks up a localized string similar to #A80C0C.
         /// </summary>
-        internal static string PubColor {
+        public static string PubColor {
             get {
                 return ResourceManager.GetString("PubColor", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to #2DC4A9.
+        /// </summary>
+        public static string ResultMeetingColor {
+            get {
+                return ResourceManager.GetString("ResultMeetingColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to #107ECC.
         /// </summary>
-        internal static string ThievesColor {
+        public static string ThievesColor {
             get {
                 return ResourceManager.GetString("ThievesColor", resourceCulture);
             }

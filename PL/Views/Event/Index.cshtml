@@ -24,35 +24,50 @@
         <div class="frame2">
             @if (Model.ResultMeetingMessage != String.Empty)
             {
-                <p>@Model.ResultMeetingMessage</p>
+                <p style="color:@Colors.ResultMeetingColor">@Model.ResultMeetingMessage</p>
+                <br />
             }
-            <p>@ScenarioTexts.WalkingMessage @Model.Name</p>
+
+            <p>@ScenarioTexts.WalkingMessage</p>
+            <p style="font-weight: bold; color: @Model.Color">@Model.Name</p>
+            <br />
             <p>@Model.WelcomeWord</p>
-            <p>Current budget: @Model.PlayerCurrentBudget</p>
+            <p style="font-weight: bold; color: @Colors.BudgetColor">
+                Your current budget: @Math.Truncate(Model.PlayerCurrentBudget) AM$ 
+                @String.Format("{0 : 00}", Math.Truncate(Model.PlayerCurrentBudget * 100 % 100)) pence
+            </p>
+            
             @if (Model.IsPub)
             {
-                <p>Current beers: @Model.PlayerCurrentBeers</p>
+                <p style="font-weight: bold; color: @Colors.BeerColor">You have pints of beer: @Model.PlayerCurrentBeers</p>
             }
+
+            <br />
+
             @if (Model.IsEnteringFee)
             {
                 <div id="choice">
-                    <a class="accept" href="#">Accept</a>
-                    @Html.ActionLink("Skip", "Skip", "Event")
+                    <a id="accept" class = "btn btn-success" href="#">Accept</a>
+                    @Html.ActionLink("Skip", "Skip", "Event", new { area = "" }, new { @class = "btn btn-info" })
                 </div>
                 <div id="enter-fee">
                     @using (Html.BeginForm("EnterFee", "Event"))
                     {
                         @Html.LabelFor(m => m.EnteredFee)
+                        <br />
                         @Html.TextBoxFor(m => m.EnteredFee)
-                        <button type="submit">Let's try</button>
+                        <br />
+                        @Html.ValidationMessageFor(m => m.EnteredFee)
+                        <br /><br />
+                        <button type="submit" class = "btn btn-warning">Let's try</button>
                     }
                 </div>
             }
             else
             {
             <div id="choice">
-                @Html.ActionLink("Accept", "Accept", "Event")
-                @Html.ActionLink("Skip", "Skip", "Event")
+                @Html.ActionLink("Accept", "Accept", "Event", new { area = "" }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Skip", "Skip", "Event", new { area = "" }, new { @class = "btn btn-info" })
             </div>
             }
 
@@ -68,16 +83,21 @@
         <div class="frame2">
             <p>@Model.ResultMeetingMessage</p>
             <p>@Model.PlayerScore</p>
-            @Html.ActionLink("Start new game", "Reset", "Event")
+            @Html.ActionLink("Start new game", "Reset", "Event", new { area = "" }, new { @class = "btn btn-warning" })
+            <br /><br />
+            @Html.ActionLink("Show history of game", "ShowHistory", "Event", new { area = "" }, new { @class = "btn btn-outline-warning" })
         </div>
     }
 </div>
 
 @section Scripts{
+
+    @Scripts.Render("~/bundles/jqueryval")
+
     <script>
          ﻿$(document).ready(function () {
             $('#enter-fee').hide();
-            $('#choice .accept').on('click', function() {
+            $('#choice #accept').on('click', function() {
               $('#choice').hide();
               $('#enter-fee').show();
             });

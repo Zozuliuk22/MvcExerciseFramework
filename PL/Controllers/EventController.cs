@@ -46,5 +46,10 @@ namespace PL.Controllers
             _scenarioCreator.Reset();
             return RedirectToAction("Index");
         }
+
+        public ActionResult ShowHistory()
+        {
+            return RedirectToAction("Index", "History");
+        }
     }
 }

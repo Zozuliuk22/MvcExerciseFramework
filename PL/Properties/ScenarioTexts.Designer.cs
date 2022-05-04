@@ -61,6 +61,15 @@ namespace PL.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There are no events..
+        /// </summary>
+        public static string HasNoEvents {
+            get {
+                return ResourceManager.GetString("HasNoEvents", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to There are not lots of rules. All that you must know: You have 100 AM$ at the beginning of the game..
         /// </summary>
         public static string InstructionsPoint1 {

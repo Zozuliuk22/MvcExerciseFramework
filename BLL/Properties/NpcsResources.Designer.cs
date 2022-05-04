@@ -22,7 +22,7 @@ namespace BLL.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class NpcsResources {
+    internal class NpcsResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace BLL.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BLL.Properties.NpcsResources", typeof(NpcsResources).Assembly);
@@ -51,7 +51,7 @@ namespace BLL.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace BLL.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Sorry, but no one could take your contract..
         /// </summary>
-        public static string AssassinKillsPlayerPostscript {
+        internal static string AssassinKillsPlayerPostscript {
             get {
                 return ResourceManager.GetString("AssassinKillsPlayerPostscript", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace BLL.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Assassins&apos; Guild.
         /// </summary>
-        public static string AssassinsGuild {
+        internal static string AssassinsGuild {
             get {
                 return ResourceManager.GetString("AssassinsGuild", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace BLL.Properties {
         /// <summary>
         ///   Looks up a localized string similar to That&apos;s just an assassin&apos;s job..
         /// </summary>
-        public static string AssassinsLoseGamePostscript {
+        internal static string AssassinsLoseGamePostscript {
             get {
                 return ResourceManager.GetString("AssassinsLoseGamePostscript", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace BLL.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Oops... Someone signed a contract to kill you. If you wanna survive and go on to enjoy your life, you must pay. Accept to cooperate with us, enter a random fee and we try to find an assassin to kill your enemy. If you skip, so... Our member will have fulfilled a contract out on you..
         /// </summary>
-        public static string AssassinsWelcomeMessage {
+        internal static string AssassinsWelcomeMessage {
             get {
                 return ResourceManager.GetString("AssassinsWelcomeMessage", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace BLL.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Unfortunately, beggars don&apos;t forgive deeds like this..
         /// </summary>
-        public static string BeggarKillsPlayerPostscript {
+        internal static string BeggarKillsPlayerPostscript {
             get {
                 return ResourceManager.GetString("BeggarKillsPlayerPostscript", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace BLL.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Beggars&apos; Guild.
         /// </summary>
-        public static string BeggarsGuild {
+        internal static string BeggarsGuild {
             get {
                 return ResourceManager.GetString("BeggarsGuild", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace BLL.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Please, donate some money.. Save your soul. Accept to donate a fix sum of money and make a good deed. Or if you skip us, you will chase you to death....
         /// </summary>
-        public static string BeggarsWelcomeMessage {
+        internal static string BeggarsWelcomeMessage {
             get {
                 return ResourceManager.GetString("BeggarsWelcomeMessage", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace BLL.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Fools&apos; Guild.
         /// </summary>
-        public static string FoolsGuild {
+        internal static string FoolsGuild {
             get {
                 return ResourceManager.GetString("FoolsGuild", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace BLL.Properties {
         /// <summary>
         ///   Looks up a localized string similar to That&apos;s strange. You lost easy money. *These players, sometimes, are so illogical..
         /// </summary>
-        public static string FoolsLoseGame {
+        internal static string FoolsLoseGame {
             get {
                 return ResourceManager.GetString("FoolsLoseGame", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace BLL.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Our congratulations! You earned some money.But remember, you have to pretend to be a fool, as your friend.
         /// </summary>
-        public static string FoolsPlayGamePrescript {
+        internal static string FoolsPlayGamePrescript {
             get {
                 return ResourceManager.GetString("FoolsPlayGamePrescript", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace BLL.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Hi! I&apos;m your friend in Ankh-Morpork! Accept to earn some money in this city. If you skip, you get nothing. .
         /// </summary>
-        public static string FoolsWelcomeMessage {
+        internal static string FoolsWelcomeMessage {
             get {
                 return ResourceManager.GetString("FoolsWelcomeMessage", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace BLL.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Lack of beer is sometimes fatal..
         /// </summary>
-        public static string PlayerIsLackOfBeerPostscript {
+        internal static string PlayerIsLackOfBeerPostscript {
             get {
                 return ResourceManager.GetString("PlayerIsLackOfBeerPostscript", resourceCulture);
             }
@@ -171,7 +171,7 @@ namespace BLL.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Unfortunately, you didn&apos;t have enough money to donate..
         /// </summary>
-        public static string PlayerIsLackOfMoneyPostscript {
+        internal static string PlayerIsLackOfMoneyPostscript {
             get {
                 return ResourceManager.GetString("PlayerIsLackOfMoneyPostscript", resourceCulture);
             }
@@ -180,7 +180,7 @@ namespace BLL.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Thank you, my dear friend!.
         /// </summary>
-        public static string PlayerIsNotLackOfBeerPostscript {
+        internal static string PlayerIsNotLackOfBeerPostscript {
             get {
                 return ResourceManager.GetString("PlayerIsNotLackOfBeerPostscript", resourceCulture);
             }
@@ -189,7 +189,7 @@ namespace BLL.Properties {
         /// <summary>
         ///   Looks up a localized string similar to You donated some money. Good deeds come back like a boomerang. Therefore, live on..
         /// </summary>
-        public static string PlayerWinsBeggar {
+        internal static string PlayerWinsBeggar {
             get {
                 return ResourceManager.GetString("PlayerWinsBeggar", resourceCulture);
             }
@@ -198,7 +198,7 @@ namespace BLL.Properties {
         /// <summary>
         ///   Looks up a localized string similar to That&apos;s a result of thieves&apos; codex..
         /// </summary>
-        public static string ThiefKillsPlayerPostscript {
+        internal static string ThiefKillsPlayerPostscript {
             get {
                 return ResourceManager.GetString("ThiefKillsPlayerPostscript", resourceCulture);
             }
@@ -207,7 +207,7 @@ namespace BLL.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Thieves&apos; Guild.
         /// </summary>
-        public static string ThievesGuild {
+        internal static string ThievesGuild {
             get {
                 return ResourceManager.GetString("ThievesGuild", resourceCulture);
             }
@@ -216,7 +216,7 @@ namespace BLL.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Unfortunately, you didn&apos;t have enough money to pay off the Thieves&apos; Guild..
         /// </summary>
-        public static string ThievesLoseGamePostscript {
+        internal static string ThievesLoseGamePostscript {
             get {
                 return ResourceManager.GetString("ThievesLoseGamePostscript", resourceCulture);
             }
@@ -225,7 +225,7 @@ namespace BLL.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Hey! How&apos;s it going? Do you have something in your pockets? Accept to pay off us and loose 10 AM$. If you don&apos;t wanna pay, you will be died. Such rules....
         /// </summary>
-        public static string ThievesWelcomeMessage {
+        internal static string ThievesWelcomeMessage {
             get {
                 return ResourceManager.GetString("ThievesWelcomeMessage", resourceCulture);
             }
@@ -234,7 +234,7 @@ namespace BLL.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Unknown.
         /// </summary>
-        public static string UnknownName {
+        internal static string UnknownName {
             get {
                 return ResourceManager.GetString("UnknownName", resourceCulture);
             }
