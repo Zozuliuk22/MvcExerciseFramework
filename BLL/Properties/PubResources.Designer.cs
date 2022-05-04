@@ -22,14 +22,14 @@ namespace BLL.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Colors {
+    internal class PubResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Colors() {
+        internal PubResources() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace BLL.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BLL.Properties.Colors", typeof(Colors).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BLL.Properties.PubResources", typeof(PubResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,56 +61,38 @@ namespace BLL.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to #841EA6.
+        ///   Looks up a localized string similar to &quot;The Mended Drum&quot; pub.
         /// </summary>
-        internal static string AssassinsColor {
+        internal static string Pub {
             get {
-                return ResourceManager.GetString("AssassinsColor", resourceCulture);
+                return ResourceManager.GetString("Pub", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to #105B20.
+        ///   Looks up a localized string similar to That&apos;s strange. You lost a chance to survive. *These players, sometimes, are so illogical..
         /// </summary>
-        internal static string BeggarsColor {
+        internal static string PubLoseGame {
             get {
-                return ResourceManager.GetString("BeggarsColor", resourceCulture);
+                return ResourceManager.GetString("PubLoseGame", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to #000000.
+        ///   Looks up a localized string similar to Unfortunately, you didn&apos;t have enough money to buy a pint of beer..
         /// </summary>
-        internal static string Black {
+        internal static string PubPlayerLackOfMoneyPostscript {
             get {
-                return ResourceManager.GetString("Black", resourceCulture);
+                return ResourceManager.GetString("PubPlayerLackOfMoneyPostscript", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to #BEBB19.
+        ///   Looks up a localized string similar to Welcome to the &quot;The Mended Drum&quot; pub. Our price : 1 pint of beer = 2$ AM..
         /// </summary>
-        internal static string FoolsColor {
+        internal static string PubWelcomeMessage {
             get {
-                return ResourceManager.GetString("FoolsColor", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to #A80C0C.
-        /// </summary>
-        internal static string PubColor {
-            get {
-                return ResourceManager.GetString("PubColor", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to #107ECC.
-        /// </summary>
-        internal static string ThievesColor {
-            get {
-                return ResourceManager.GetString("ThievesColor", resourceCulture);
+                return ResourceManager.GetString("PubWelcomeMessage", resourceCulture);
             }
         }
     }

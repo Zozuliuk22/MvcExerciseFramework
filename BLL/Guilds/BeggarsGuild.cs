@@ -71,7 +71,7 @@ namespace BLL.Guilds
             else if (player.CurrentBudget >= _activeNpc.Fee)
             {
                 player.LoseMoney(_activeNpc.Fee);
-                return NpcsResources.PlayerWinsBeggarPostscript;
+                return NpcsResources.PlayerWinsBeggar;
             }
             else
                 return player.ToDie() + " " + NpcsResources.PlayerIsLackOfMoneyPostscript +

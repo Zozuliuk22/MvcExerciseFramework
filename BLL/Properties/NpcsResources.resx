@@ -141,8 +141,8 @@
   <data name="FoolsGuild" xml:space="preserve">
     <value>Fools' Guild</value>
   </data>
-  <data name="FoolsLoseGamePostscript" xml:space="preserve">
-    <value>That's strange. You lost easy money.\n*These players, sometimes, are so illogical.</value>
+  <data name="FoolsLoseGame" xml:space="preserve">
+    <value>That's strange. You lost easy money. *These players, sometimes, are so illogical.</value>
   </data>
   <data name="FoolsPlayGamePrescript" xml:space="preserve">
     <value>Our congratulations! You earned some money.But remember, you have to pretend to be a fool, as your friend</value>
@@ -159,7 +159,7 @@
   <data name="PlayerIsNotLackOfBeerPostscript" xml:space="preserve">
     <value>Thank you, my dear friend!</value>
   </data>
-  <data name="PlayerWinsBeggarPostscript" xml:space="preserve">
+  <data name="PlayerWinsBeggar" xml:space="preserve">
     <value>You donated some money. Good deeds come back like a boomerang. Therefore, live on.</value>
   </data>
   <data name="ThiefKillsPlayerPostscript" xml:space="preserve">

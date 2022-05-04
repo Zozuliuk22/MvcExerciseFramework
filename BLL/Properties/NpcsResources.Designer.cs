@@ -133,11 +133,11 @@ namespace BLL.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to That&apos;s strange. You lost easy money.\n*These players, sometimes, are so illogical..
+        ///   Looks up a localized string similar to That&apos;s strange. You lost easy money. *These players, sometimes, are so illogical..
         /// </summary>
-        public static string FoolsLoseGamePostscript {
+        public static string FoolsLoseGame {
             get {
-                return ResourceManager.GetString("FoolsLoseGamePostscript", resourceCulture);
+                return ResourceManager.GetString("FoolsLoseGame", resourceCulture);
             }
         }
         
@@ -189,9 +189,9 @@ namespace BLL.Properties {
         /// <summary>
         ///   Looks up a localized string similar to You donated some money. Good deeds come back like a boomerang. Therefore, live on..
         /// </summary>
-        public static string PlayerWinsBeggarPostscript {
+        public static string PlayerWinsBeggar {
             get {
-                return ResourceManager.GetString("PlayerWinsBeggarPostscript", resourceCulture);
+                return ResourceManager.GetString("PlayerWinsBeggar", resourceCulture);
             }
         }
         

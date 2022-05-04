@@ -77,6 +77,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Colors.resx</DependentUpon>
     </Compile>
+    <Compile Include="Properties\PubResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PubResources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
@@ -86,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Dtos\" />
+    <Folder Include="Interfaces\" />
     <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
@@ -100,6 +106,10 @@
     <EmbeddedResource Include="Properties\Colors.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Colors.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\PubResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PubResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

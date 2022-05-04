@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BLL.NPCs;
 using BLL.Constants;
 using DAL.Interfaces;
@@ -75,7 +72,7 @@ namespace BLL.Guilds
 
             player.HasIneffectualMeeting();
 
-            return NpcsResources.FoolsLoseGamePostscript;
+            return NpcsResources.FoolsLoseGame;
         }
 
         public override void Reset()
