@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using BLL.Properties;
 
 namespace BLL
 {
@@ -15,6 +12,8 @@ namespace BLL
         public string Name { get; set; }
 
         public int Score => _score;
+
+        public int HighScore { get; set; }
 
         public bool IsAlive { get; private set; }
 
@@ -30,9 +29,7 @@ namespace BLL
                 throw new ArgumentNullException("The Player's name must consist of symbols.");
 
             Name = name;
-            CurrentBudget = _startBudget;
-            CurrentBeers = 0;
-            IsAlive = true;
+            Reset();
         }
 
         public void EarnMoney(decimal bonus)
@@ -55,13 +52,13 @@ namespace BLL
         public string BuyBeer()
         {
             CurrentBeers += 1;
-            return "Congratulations! You have got a chance to survive.";
+            return PlayerResources.BuyBeer;
         }
 
         public string LoseBeer()
         {
             CurrentBeers -= 1;
-            return "You donated a bottle of beer.";
+            return PlayerResources.DonateBeer;
         }
 
         public void HasIneffectualMeeting() => _score += 1;
@@ -69,7 +66,7 @@ namespace BLL
         public string ToDie()
         {
             IsAlive = false;
-            return "You were killed!";
+            return PlayerResources.ToDie;
         }
 
         public void Reset()

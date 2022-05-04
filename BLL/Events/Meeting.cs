@@ -2,7 +2,7 @@
 using BLL.Guilds;
 using BLL.NPCs;
 
-namespace BLL
+namespace BLL.Events
 {
     public class Meeting
     {

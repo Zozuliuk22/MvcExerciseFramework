@@ -1,11 +1,12 @@
 ﻿using System.Drawing;
 using BLL.Properties;
 
-namespace BLL
+namespace BLL.Events
 {
     public class Pub
     {
         private const decimal _beerPrice = 2;
+        private const int _defaultStep = 5;
 
         public string WelcomeMessage
         {
@@ -18,6 +19,10 @@ namespace BLL
         public string Color => Colors.PubColor;
 
         public Bitmap Image => Images.Pub;
+
+        public int AccessToPub { get; set; } = _defaultStep;
+
+        public int DefaultStep => _defaultStep;
 
         public string PlayGame(Player player)
         {
@@ -33,5 +38,10 @@ namespace BLL
         public string LoseGame() => PubResources.PubLoseGame;
 
         public override string ToString() => PubResources.Pub;
+
+        public void Reset()
+        {
+            AccessToPub = _defaultStep;
+        }
     }
 }

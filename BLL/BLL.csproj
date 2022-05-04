@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants\PracticeInfo.cs" />
+    <Compile Include="Dtos\EventDto.cs" />
     <Compile Include="Events\Meeting.cs" />
     <Compile Include="Events\Pub.cs" />
     <Compile Include="Guilds\AssassinGuild.cs" />
@@ -56,6 +57,9 @@
     <Compile Include="Guilds\FoolsGuild.cs" />
     <Compile Include="Guilds\Guild.cs" />
     <Compile Include="Guilds\ThievesGuild.cs" />
+    <Compile Include="Interfaces\IMeetingService.cs" />
+    <Compile Include="Interfaces\IPlayerService.cs" />
+    <Compile Include="Interfaces\IScenarioCreatorService.cs" />
     <Compile Include="Npcs\AssassinNpc.cs" />
     <Compile Include="Npcs\BeggarNpc.cs" />
     <Compile Include="Npcs\FoolNpc.cs" />
@@ -82,6 +86,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PubResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Properties\PlayerResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PlayerResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\MeetingService.cs" />
+    <Compile Include="Services\PlayerService.cs" />
+    <Compile Include="Services\ScenarioCreatorService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
@@ -89,11 +101,7 @@
       <Name>DAL</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Dtos\" />
-    <Folder Include="Interfaces\" />
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Properties\NpcsResources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -110,6 +118,10 @@
     <EmbeddedResource Include="Properties\PubResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>PubResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\PlayerResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PlayerResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
