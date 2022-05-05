@@ -473,6 +473,7 @@
     <Content Include="Views\Event\Index.cshtml" />
     <Content Include="Views\History\Index.cshtml" />
     <Content Include="Views\Player\Index.cshtml" />
+    <Content Include="Views\Home\ErrorPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
