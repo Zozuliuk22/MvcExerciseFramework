@@ -14,11 +14,12 @@ namespace PL.Controllers
             _scenarioCreator = scenarioCreator;
         }
 
+        [HttpGet]
         public ActionResult Index()
         {
             var model = new EventModel();
             var item = _scenarioCreator.GetModel();
-            model = Mapper.Map(item, model);
+            Mapper.Map(item, model);
             return View(model);
         }
 
@@ -44,7 +45,7 @@ namespace PL.Controllers
         public ActionResult Reset()
         {
             _scenarioCreator.Reset();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Home");
         }
 
         public ActionResult ShowHistory()

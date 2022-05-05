@@ -16,6 +16,8 @@ namespace BLL.Dtos
 
         public string PlayerScore { get; set; }
 
+        public int PlayerHighScore { get; set; }
+
         public bool PlayerIsAlive { get; set; }
 
         public decimal PlayerCurrentBudget { get; set; }

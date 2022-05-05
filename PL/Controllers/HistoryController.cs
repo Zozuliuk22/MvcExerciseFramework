@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using AutoMapper;
+﻿using System.Web.Mvc;
 using BLL.Interfaces;
 using PL.Models;
 
@@ -18,6 +13,7 @@ namespace PL.Controllers
             _historyService = historyService;
         }
 
+        [HttpGet]
         public ActionResult Index()
         {
             var model = new EventHistoryViewModel();

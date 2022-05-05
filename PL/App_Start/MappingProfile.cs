@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using BLL.Dtos;
 using PL.Models;
-using System.Collections.Generic;
 
 namespace Web
 {
@@ -10,6 +9,7 @@ namespace Web
         public MappingProfile()
         {
             Mapper.CreateMap<EventDto, EventModel>().ReverseMap();
+            Mapper.CreateMap<PlayerDto, PlayerViewModel>().ReverseMap();
         }
     }
 }

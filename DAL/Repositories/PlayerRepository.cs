@@ -25,12 +25,6 @@ namespace DAL.Repositories
             _context.Player.Add(player);
         }
 
-        public void DeleteById(int id)
-        {
-            var item = _context.Player.FirstOrDefault(p => p.Id == id);
-            if(item != null) _context.Player.Remove(item);
-        }
-
         public Player GetById(int id)
         {
             return _context.Player.FirstOrDefault(p => p.Id == id);

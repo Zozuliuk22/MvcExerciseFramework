@@ -11,6 +11,7 @@ namespace PL
         public override void Load()
         {
             Bind<IUnitOfWork>().To<UnitOfWork>();
+            Bind<IPlayerService>().To<PlayerService>().InSingletonScope();
             Bind<IMeetingService>().To<MeetingService>().InSingletonScope();
             Bind<IHistoryService>().To<HistoryService>().InSingletonScope();
             Bind<IScenarioCreatorService>().To<ScenarioCreatorService>().InSingletonScope();

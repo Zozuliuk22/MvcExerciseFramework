@@ -10,7 +10,7 @@
 }
 
 <div class="menu">
-    @if (Model.EventsHistory.Count <= 1)
+    @if (Model.EventsHistory.Count == 0)
     {
         <h2 style="text-align:center">@ScenarioTexts.HasNoEvents</h2>
     }
@@ -41,6 +41,6 @@
         </table>
     }
     <br /><br />
-    @Html.ActionLink("Go Home", "Index", "Home", new { area = "" }, new { @class = "btn btn-outline-warning" })
+    @Html.ActionLink("Go Home", "Reset", "Event", new { area = "" }, new { @class = "btn btn-outline-warning" })
     <br />
 </div>

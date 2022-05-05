@@ -1,12 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using BLL.Dtos;
 
 namespace BLL.Interfaces
 {
-    internal interface IPlayerService
+    public interface IPlayerService
     {
+        Player CurrentPlayer { get; set; }
+
+        void Create(PlayerDto playerDto);
+
+        void Update(Player player);
+
+        PlayerDto GetById(int id);
+
+        IEnumerable<PlayerDto> GetAll();
+
+        void SetPlayer(PlayerDto playerDto);
     }
 }

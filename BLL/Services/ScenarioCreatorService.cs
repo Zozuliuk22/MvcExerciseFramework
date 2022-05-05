@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BLL.Guilds;
-using System.Reflection;
-using DAL.Interfaces;
 using BLL.Dtos;
 using BLL.Properties;
 using BLL.Interfaces;
@@ -18,6 +12,7 @@ namespace BLL.Services
     {
         private readonly IMeetingService _meetingService;
         private readonly IHistoryService _historyService;
+        private readonly IPlayerService _playerService;
 
         private Player _currentPlayer;
         private Pub _pub;
@@ -26,12 +21,16 @@ namespace BLL.Services
         private bool _isPub;
         private string _meetingResult;
 
-        public ScenarioCreatorService(IMeetingService meetingService, IHistoryService historyService)
+        public ScenarioCreatorService(IMeetingService meetingService, 
+                                      IHistoryService historyService,
+                                      IPlayerService playerService)
         { 
             _historyService = historyService; 
             _meetingService = meetingService;
+            _playerService = playerService;
+
             _pub = new Pub();   
-            _currentPlayer = new Player("Viktor");
+            _currentPlayer = _playerService.CurrentPlayer;
 
             CreateStartEventHistory();
         }
@@ -80,6 +79,14 @@ namespace BLL.Services
             meetingDto.PlayerCurrentBudget = _currentPlayer.CurrentBudget;
             meetingDto.PlayerCurrentBeers = _currentPlayer.CurrentBeers;
             meetingDto.ResultMeetingMessage = _meetingResult;
+
+            if (!_currentPlayer.IsAlive && _currentPlayer.Score > _currentPlayer.HighScore)
+            {
+                _currentPlayer.HighScore = _currentPlayer.Score;
+                _playerService.Update(_currentPlayer);
+            }
+
+            meetingDto.PlayerHighScore = _currentPlayer.HighScore;
 
             return meetingDto;
         }        

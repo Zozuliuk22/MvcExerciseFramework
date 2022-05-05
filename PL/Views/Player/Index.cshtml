@@ -1,0 +1,56 @@
+﻿@using BLL.Properties
+@using System.Drawing
+@model PL.Models.PlayerModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Player";
+}
+
+@section Styles{
+    <link rel="stylesheet" type="text/css" href="~/Content/game-stylesheet.css" />
+}
+
+<div class="menu">
+    <div class="frame1">
+        @Html.Raw("<img src=\"data:image/jpeg;base64," +
+                      Convert.ToBase64String((byte[])new ImageConverter()
+                     .ConvertTo(Images.Default, typeof(byte[]))) + "\" />")
+    </div>
+    <div class="frame2">
+        @using (Html.BeginForm("SetPlayer", "Player"))
+        {
+            @Html.LabelFor(m => m.Name)
+            <br />
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Name)
+            <br /><br />
+            @Html.HiddenFor(m => m.Id)
+            <button type="submit" class="btn btn-warning">Start Game</button>
+        }
+    </div>
+</div>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+            $(document).ready(function () {            
+                var playersArray = new Bloodhound({
+                    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('Name'),
+                    queryTokenizer: Bloodhound.tokenizers.whitespace,
+                    local: @Html.Raw(Json.Encode(Model.Players))
+                });
+
+                $('#Name').typeahead({
+                    minLength: 1,
+                    highlight : true
+                }, {
+                    name: 'players',
+                    display: 'Name',
+                    source: playersArray
+                }).on("typeahead:select", function (e, player) {
+                    $('#Id').val(player.Id)
+                });
+            })
+    </script>
+}

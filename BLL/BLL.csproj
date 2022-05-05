@@ -52,6 +52,7 @@
     <Compile Include="Constants\PracticeInfo.cs" />
     <Compile Include="Dtos\EventDto.cs" />
     <Compile Include="Dtos\EventHistoryDto.cs" />
+    <Compile Include="Dtos\PlayerDto.cs" />
     <Compile Include="Events\Meeting.cs" />
     <Compile Include="Events\Pub.cs" />
     <Compile Include="Guilds\AssassinGuild.cs" />

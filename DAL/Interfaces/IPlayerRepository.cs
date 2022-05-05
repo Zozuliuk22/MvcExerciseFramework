@@ -9,7 +9,5 @@ namespace DAL.Interfaces
         void Create(Player player);
 
         void Update(Player player);
-
-        void DeleteById(int id);
     }
 }
