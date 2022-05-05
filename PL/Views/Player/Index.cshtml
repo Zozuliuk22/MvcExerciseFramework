@@ -1,8 +1,7 @@
 ﻿@using BLL.Properties
 @using System.Drawing
-@model PL.Models.PlayerModel
+@model PL.Models.PlayerViewModel
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Player";
 }
 
@@ -22,6 +21,7 @@
             @Html.LabelFor(m => m.Name)
             <br />
             @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+            <br />
             @Html.ValidationMessageFor(m => m.Name)
             <br /><br />
             @Html.HiddenFor(m => m.Id)

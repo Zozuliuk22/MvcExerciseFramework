@@ -17,9 +17,9 @@ namespace PL.Models
 
         [Required(ErrorMessage = "Enter a fee")]
         [Display(Name = "Please, enter a fee:")]
-        [RegularExpression(@"^\d+,?\d*$", ErrorMessage = "Entered value is not valid.")]
+        [RegularExpression(@"^\d+[.,]?\d*$", ErrorMessage = "Entered value is not valid. Enter value like 10.123")]
         [Range(0, 100, ErrorMessage = "Entered value is not valid.")]
-        public decimal EnteredFee { get; set; }
+        public string EnteredFee { get; set; }
 
         public string PlayerScore { get; set; }
 

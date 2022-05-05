@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using System;
 using PL.Models;
 using BLL.Interfaces;
 using System.Web.Mvc;
@@ -37,7 +38,7 @@ namespace PL.Controllers
 
         public ActionResult EnterFee(EventModel model)
         {
-            _scenarioCreator.UseEnteredFee(model.EnteredFee);
+            _scenarioCreator.UseEnteredFee(Decimal.Parse(model.EnteredFee.Replace('.', ',').Trim()));
             _scenarioCreator.Accept();
             return RedirectToAction("Index");
         }
