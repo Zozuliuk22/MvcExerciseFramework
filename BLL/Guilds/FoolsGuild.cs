@@ -56,7 +56,7 @@ namespace BLL.Guilds
             return _activeNpc;
         }
 
-        public override string PlayGame(Player player)
+        public override string PlayGame(PlayerLogic player)
         {
             if (player is null)
                 throw new ArgumentNullException(nameof(player), "The player value cannot be null.");
@@ -65,7 +65,7 @@ namespace BLL.Guilds
             return NpcsResources.FoolsPlayGamePrescript + $" {_activeNpc.FullPracticeName}.";
         }
 
-        public override string LoseGame(Player player)
+        public override string LoseGame(PlayerLogic player)
         {
             if (player is null)
                 throw new ArgumentNullException(nameof(player), "The player value cannot be null.");

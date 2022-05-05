@@ -14,8 +14,6 @@ namespace PL.Models
                             ErrorMessage = "Enter a name without numbers and start with A-Z")]
         public string Name { get; set; }
 
-        public int HighScore { get; set; }
-
         public List<PlayerViewModel> Players { get; set; }
     }
 }

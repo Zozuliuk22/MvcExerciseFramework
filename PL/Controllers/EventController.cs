@@ -48,7 +48,7 @@ namespace PL.Controllers
         public ActionResult Reset()
         {
             _scenarioCreator.Reset();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Event");
         }
 
         public ActionResult ShowHistory()

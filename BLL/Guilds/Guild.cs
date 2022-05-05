@@ -12,9 +12,9 @@ namespace BLL.Guilds
 
         public virtual Bitmap GuildImage => Images.Default;
 
-        public abstract string PlayGame(Player player);
+        public abstract string PlayGame(PlayerLogic player);
 
-        public virtual string LoseGame(Player player)
+        public virtual string LoseGame(PlayerLogic player)
         {
             if (player is null)
                 throw new ArgumentNullException(nameof(player), "The player value cannot be null.");

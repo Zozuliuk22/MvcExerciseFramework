@@ -26,7 +26,7 @@ namespace BLL.Guilds
 
         public void AddTheft() => CurrentNumberThefts += 1;
 
-        public override string PlayGame(Player player)
+        public override string PlayGame(PlayerLogic player)
         {
             if (player is null)
                 throw new ArgumentNullException(nameof(player), "The player value cannot be null.");
@@ -40,7 +40,7 @@ namespace BLL.Guilds
                 return LoseGame(player) + " " + NpcsResources.ThievesLoseGamePostscript;
         }
 
-        public override string LoseGame(Player player)
+        public override string LoseGame(PlayerLogic player)
         {
             return base.LoseGame(player) + " " + NpcsResources.ThiefKillsPlayerPostscript;
         }

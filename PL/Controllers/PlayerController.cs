@@ -18,7 +18,7 @@ namespace PL.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            var playerModel = new PlayerViewModel();            
+            var playerModel = new PlayerViewModel();
             playerModel.Players = Mapper.Map(_playerService.GetAll(), 
                                              playerModel.Players);
             return View(playerModel);

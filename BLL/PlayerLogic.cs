@@ -3,7 +3,7 @@ using BLL.Properties;
 
 namespace BLL
 {
-    public class Player
+    public class PlayerLogic
     {
         private const decimal _startBudget = 100;
         private int _score = 0;
@@ -25,7 +25,7 @@ namespace BLL
 
         public int MaxBeers => _maxBeers;
 
-        public Player(string name)
+        public PlayerLogic(string name)
         {
             if (String.IsNullOrWhiteSpace(name))
                 throw new ArgumentNullException("The Player's name must consist of symbols.");

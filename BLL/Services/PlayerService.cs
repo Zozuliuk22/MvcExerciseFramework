@@ -3,6 +3,7 @@ using System.Linq;
 using BLL.Interfaces;
 using BLL.Dtos;
 using DAL.Interfaces;
+using DAL.Entities;
 
 namespace BLL.Services
 {
@@ -10,7 +11,7 @@ namespace BLL.Services
     {
         private IUnitOfWork _unitOfWork;
 
-        public Player CurrentPlayer { get; set; }
+        public PlayerLogic CurrentPlayer { get; set; }
 
         public PlayerService(IUnitOfWork unitOfWork)
         {
@@ -19,18 +20,18 @@ namespace BLL.Services
 
         public void Create(PlayerDto playerDto)
         {
-            var playerDb = new DAL.Entities.Player()
+            var playerDb = new Player()
             {
                 Name = playerDto.Name,
             };
             _unitOfWork.PlayerRepository.Create(playerDb);
             _unitOfWork.Save();        
             
-            playerDto.Id = _unitOfWork.PlayerRepository.GetAll().Last().Id;
-            SetCurrentPlayer(playerDto);
+            playerDb = _unitOfWork.PlayerRepository.GetAll().Last();
+            SetCurrentPlayer(playerDb);
         }
 
-        public void Update(Player player)
+        public void Update(PlayerLogic player)
         {
             var playerDb = _unitOfWork.PlayerRepository.GetById(player.Id);
             playerDb.Name = player.Name;
@@ -45,8 +46,7 @@ namespace BLL.Services
             return new PlayerDto()
             {
                 Id = player.Id,
-                Name = player.Name,
-                HighScore = player.HighScore
+                Name = player.Name
             };
         }
 
@@ -57,8 +57,7 @@ namespace BLL.Services
             playersDb.ForEach(p => playersReturn.Add(new PlayerDto()
             {
                 Id = p.Id,
-                Name = p.Name,
-                HighScore=p.HighScore
+                Name = p.Name
             }));
             return playersReturn;
         }
@@ -68,14 +67,18 @@ namespace BLL.Services
             if (playerDto.Id == 0)
                 Create(playerDto);
             else
-               SetCurrentPlayer(playerDto);
+            {
+                var playerDb = _unitOfWork.PlayerRepository.GetById(playerDto.Id);
+                SetCurrentPlayer(playerDb);
+            }
+               
         }
 
-        private void SetCurrentPlayer(PlayerDto playerDto)
+        private void SetCurrentPlayer(Player playerDb)
         {
-            CurrentPlayer = new Player(playerDto.Name);
-            CurrentPlayer.Id = playerDto.Id;
-            CurrentPlayer.HighScore = playerDto.HighScore;
+            CurrentPlayer = new PlayerLogic(playerDb.Name);
+            CurrentPlayer.Id = playerDb.Id;
+            CurrentPlayer.HighScore = playerDb.HighScore;
         }
     }
 }

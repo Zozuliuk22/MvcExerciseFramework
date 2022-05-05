@@ -24,7 +24,7 @@ namespace BLL.Events
 
         public int DefaultStep => _defaultStep;
 
-        public string PlayGame(Player player)
+        public string PlayGame(PlayerLogic player)
         {
             if (player.CurrentBudget >= _beerPrice && player.CurrentBeers < player.MaxBeers)
             {

@@ -57,7 +57,7 @@ namespace BLL.Guilds
             return _activeNpc;
         }
 
-        public override string PlayGame(Player player)
+        public override string PlayGame(PlayerLogic player)
         {
             if (player is null)
                 throw new ArgumentNullException(nameof(player), "The player value cannot be null.");
@@ -78,7 +78,7 @@ namespace BLL.Guilds
                     $" And {_activeNpc.Name} chased you to death.";
         }
 
-        public override string LoseGame(Player player)
+        public override string LoseGame(PlayerLogic player)
         {
             return base.LoseGame(player) + " " + NpcsResources.BeggarKillsPlayerPostscript;
         }

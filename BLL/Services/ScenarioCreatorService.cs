@@ -141,9 +141,11 @@ namespace BLL.Services
         public void Reset()
         {
             _meetingService.Reset();
-            _historyService.Reset();
+            _historyService.Reset();            
+            _playerService.CurrentPlayer.Reset();
             _pub.Reset();
             _meetingResult = String.Empty;
+            CreateStartEventHistory();
         }
     }
 }

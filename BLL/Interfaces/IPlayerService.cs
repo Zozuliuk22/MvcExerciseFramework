@@ -5,11 +5,11 @@ namespace BLL.Interfaces
 {
     public interface IPlayerService
     {
-        Player CurrentPlayer { get; set; }
+        PlayerLogic CurrentPlayer { get; set; }
 
         void Create(PlayerDto playerDto);
 
-        void Update(Player player);
+        void Update(PlayerLogic player);
 
         PlayerDto GetById(int id);
 
