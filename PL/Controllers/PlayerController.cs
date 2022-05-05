@@ -18,14 +18,16 @@ namespace PL.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            var playersDto = _playerService.GetAll();
-            var playerModel = new PlayerViewModel();
-            playerModel.Players = Mapper.Map(playersDto, playerModel.Players);
+            var playerModel = new PlayerViewModel();            
+            playerModel.Players = Mapper.Map(_playerService.GetAll(), 
+                                             playerModel.Players);
             return View(playerModel);
         }
 
         public ActionResult SetPlayer(PlayerViewModel playerModel)
         {
+            if (playerModel is null) 
+                return RedirectToAction("ErrorPage", "Home");
             var playerDto = new PlayerDto();
             Mapper.Map(playerModel, playerDto);
             _playerService.SetPlayer(playerDto);

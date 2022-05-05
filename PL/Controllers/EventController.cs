@@ -15,12 +15,13 @@ namespace PL.Controllers
             _scenarioCreator = scenarioCreator;
         }
 
-        [HttpGet]
         public ActionResult Index()
         {
             var model = new EventModel();
-            var item = _scenarioCreator.GetModel();
-            Mapper.Map(item, model);
+            var modelDto = _scenarioCreator.GetModel();
+            if (modelDto is null)
+                return RedirectToAction("ErrorPage", "Home");
+            Mapper.Map(modelDto, model);
             return View(model);
         }
 
@@ -38,9 +39,10 @@ namespace PL.Controllers
 
         public ActionResult EnterFee(EventModel model)
         {
+            if (model is null)
+                return RedirectToAction("ErrorPage", "Home");
             _scenarioCreator.UseEnteredFee(Decimal.Parse(model.EnteredFee.Replace('.', ',').Trim()));
-            _scenarioCreator.Accept();
-            return RedirectToAction("Index");
+            return Accept();
         }
 
         public ActionResult Reset()

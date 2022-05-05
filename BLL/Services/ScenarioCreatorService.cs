@@ -14,7 +14,6 @@ namespace BLL.Services
         private readonly IHistoryService _historyService;
         private readonly IPlayerService _playerService;
 
-        private Player _currentPlayer;
         private Pub _pub;
         private Meeting _currentMeeting;
 
@@ -29,16 +28,15 @@ namespace BLL.Services
             _meetingService = meetingService;
             _playerService = playerService;
 
-            _pub = new Pub();   
-            _currentPlayer = _playerService.CurrentPlayer;
+            _pub = new Pub(); 
 
             CreateStartEventHistory();
         }
 
         private void CreateRandomGuildMeetingOrBar()
         {
-            if (_currentPlayer.CurrentBeers < _currentPlayer.MaxBeers 
-                    && _currentPlayer.Score > _pub.AccessToPub)
+            if (_playerService.CurrentPlayer.CurrentBeers < _playerService.CurrentPlayer.MaxBeers 
+                    && _playerService.CurrentPlayer.Score > _pub.AccessToPub)
             {
                 _isPub = new Random().Next(2) == 0;
                 _pub.AccessToPub += _pub.DefaultStep;
@@ -74,19 +72,20 @@ namespace BLL.Services
             }
 
             meetingDto.IsPub = _isPub;
-            meetingDto.PlayerScore = _currentPlayer.ToString();
-            meetingDto.PlayerIsAlive = _currentPlayer.IsAlive;
-            meetingDto.PlayerCurrentBudget = _currentPlayer.CurrentBudget;
-            meetingDto.PlayerCurrentBeers = _currentPlayer.CurrentBeers;
+            meetingDto.PlayerScore = _playerService.CurrentPlayer.ToString();
+            meetingDto.PlayerIsAlive = _playerService.CurrentPlayer.IsAlive;
+            meetingDto.PlayerCurrentBudget = _playerService.CurrentPlayer.CurrentBudget;
+            meetingDto.PlayerCurrentBeers = _playerService.CurrentPlayer.CurrentBeers;
             meetingDto.ResultMeetingMessage = _meetingResult;
 
-            if (!_currentPlayer.IsAlive && _currentPlayer.Score > _currentPlayer.HighScore)
+            if (!_playerService.CurrentPlayer.IsAlive 
+              && _playerService.CurrentPlayer.Score > _playerService.CurrentPlayer.HighScore)
             {
-                _currentPlayer.HighScore = _currentPlayer.Score;
-                _playerService.Update(_currentPlayer);
+                _playerService.CurrentPlayer.HighScore = _playerService.CurrentPlayer.Score;
+                _playerService.Update(_playerService.CurrentPlayer);
             }
 
-            meetingDto.PlayerHighScore = _currentPlayer.HighScore;
+            meetingDto.PlayerHighScore = _playerService.CurrentPlayer.HighScore;
 
             return meetingDto;
         }        
@@ -94,8 +93,8 @@ namespace BLL.Services
         public void Accept()
         {
             if (_isPub)
-                _meetingResult = _pub.PlayGame(_currentPlayer);
-            _meetingResult = _currentMeeting.Guild.PlayGame(_currentPlayer);
+                _meetingResult = _pub.PlayGame(_playerService.CurrentPlayer);
+            _meetingResult = _currentMeeting.Guild.PlayGame(_playerService.CurrentPlayer);
             CreateEventHistory();
         }
 
@@ -103,7 +102,7 @@ namespace BLL.Services
         {
             if (_isPub)
                 _meetingResult = _pub.LoseGame();
-            _meetingResult = _currentMeeting.Guild.LoseGame(_currentPlayer);
+            _meetingResult = _currentMeeting.Guild.LoseGame(_playerService.CurrentPlayer);
             CreateEventHistory();
 
         }
@@ -113,9 +112,9 @@ namespace BLL.Services
             var newEvent = new EventHistoryDto();
             newEvent.Name = _isPub ? _pub.ToString() : _currentMeeting.Guild.ToString();
             newEvent.Color = _isPub ? _pub.Color : _currentMeeting.Guild.GuildColor;
-            newEvent.PlayerAlive = _currentPlayer.IsAlive ? DialogResult.Yes.ToString() : DialogResult.No.ToString();
-            newEvent.Beers = _currentPlayer.CurrentBeers;
-            newEvent.Budget = _currentPlayer.CurrentBudget;
+            newEvent.PlayerAlive = _playerService.CurrentPlayer.IsAlive ? DialogResult.Yes.ToString() : DialogResult.No.ToString();
+            newEvent.Beers = _playerService.CurrentPlayer.CurrentBeers;
+            newEvent.Budget = _playerService.CurrentPlayer.CurrentBudget;
             _historyService.Add(newEvent);
         }
 
@@ -124,9 +123,9 @@ namespace BLL.Services
             var newEvent = new EventHistoryDto();
             newEvent.Name = HistoryResources.StartEventHistoryName;
             newEvent.Color = Colors.Black;
-            newEvent.PlayerAlive = _currentPlayer.IsAlive ? DialogResult.Yes.ToString() : DialogResult.No.ToString();
-            newEvent.Beers = _currentPlayer.CurrentBeers;
-            newEvent.Budget = _currentPlayer.CurrentBudget;
+            newEvent.PlayerAlive = _playerService.CurrentPlayer.IsAlive ? DialogResult.Yes.ToString() : DialogResult.No.ToString();
+            newEvent.Beers = _playerService.CurrentPlayer.CurrentBeers;
+            newEvent.Budget = _playerService.CurrentPlayer.CurrentBudget;
             _historyService.Add(newEvent);
         }
 
@@ -144,7 +143,6 @@ namespace BLL.Services
             _meetingService.Reset();
             _historyService.Reset();
             _pub.Reset();
-            _currentPlayer.Reset();
             _meetingResult = String.Empty;
         }
     }
