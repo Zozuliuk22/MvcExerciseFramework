@@ -1,0 +1,44 @@
+﻿.menu {
+    max-width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.frame1 {
+    float: left;
+    width: 40%;
+    margin-top : 30px;
+}
+
+.frame2 {
+    float: left;
+    width: 60%;
+    margin-top: 50px;
+}
+
+img {
+    width: 80%;
+    margin-left : 10%
+}
+
+#title {
+    text-align: center;
+    color: #2DC4A9;
+}
+
+#large-text {
+    text-align: justify
+}
+
+#warning-text {
+    color: #B9223A
+}
+
+.field-validation-error {
+    color: red;
+    font-size: 0.8em;
+}
+
+.input-validation-error{
+    border : 2px solid red;
+}
