@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using BLL.Properties;
 
 namespace BLL.Events
@@ -26,13 +27,16 @@ namespace BLL.Events
 
         public string PlayGame(PlayerLogic player)
         {
+            if(player is null)
+                throw new ArgumentNullException(nameof(player), "The player value cannot be null.");
+            
             if (player.CurrentBudget >= _beerPrice && player.CurrentBeers < player.MaxBeers)
             {
                 player.LoseMoney(_beerPrice);
                 return player.BuyBeer();
             }
             else
-                return player.ToDie() + " " + PubResources.PubPlayerLackOfMoneyPostscript;
+                return PubResources.PubPlayerLackOfMoneyPostscript;
         }
 
         public string LoseGame() => PubResources.PubLoseGame;

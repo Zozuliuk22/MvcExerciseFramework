@@ -68,6 +68,7 @@ namespace BLL.Guilds
 
         public Npc GetActiveNpc()
         {
+            if (_activeNpc is null) return null;
             if (_activeNpc.IsOccupied)
                 throw new InvalidOperationException("Before this, player must enter fee and check contract.");
             return _activeNpc;
