@@ -11,7 +11,7 @@ namespace DAL.Interfaces
 
         IRepository<FoolNpc> FoolNpcs { get; }
 
-        IPlayerRepository PlayerRepository { get; }
+        IPlayerRepository Players { get; }
 
         int Save();
     }

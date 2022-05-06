@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System;
 using BLL.Interfaces;
 using BLL.Dtos;
 using DAL.Interfaces;
@@ -20,29 +21,35 @@ namespace BLL.Services
 
         public void Create(PlayerDto playerDto)
         {
+            if(playerDto is null)
+                throw new ArgumentNullException(nameof(playerDto), "The playerDto value cannot be null.");
+            
             var playerDb = new Player()
             {
                 Name = playerDto.Name,
             };
-            _unitOfWork.PlayerRepository.Create(playerDb);
+            _unitOfWork.Players.Create(playerDb);
             _unitOfWork.Save();        
             
-            playerDb = _unitOfWork.PlayerRepository.GetAll().Last();
+            playerDb = _unitOfWork.Players.GetAll().Last();
             SetCurrentPlayer(playerDb);
         }
 
         public void Update(PlayerLogic player)
         {
-            var playerDb = _unitOfWork.PlayerRepository.GetById(player.Id);
+            if (player is null)
+                throw new ArgumentNullException(nameof(player), "The player value cannot be null.");
+            
+            var playerDb = _unitOfWork.Players.GetById(player.Id);
             playerDb.Name = player.Name;
             playerDb.HighScore = player.HighScore;
-            _unitOfWork.PlayerRepository.Update(playerDb);
+            _unitOfWork.Players.Update(playerDb);
             _unitOfWork.Save();
         }
 
         public PlayerDto GetById(int id)
         {
-            var player = _unitOfWork.PlayerRepository.GetById(id);
+            var player = _unitOfWork.Players.GetById(id);
             return new PlayerDto()
             {
                 Id = player.Id,
@@ -52,7 +59,7 @@ namespace BLL.Services
 
         public IEnumerable<PlayerDto> GetAll()
         {
-            var playersDb = _unitOfWork.PlayerRepository.GetAll().ToList();
+            var playersDb = _unitOfWork.Players.GetAll().ToList();
             var playersReturn = new List<PlayerDto>();
             playersDb.ForEach(p => playersReturn.Add(new PlayerDto()
             {
@@ -64,11 +71,14 @@ namespace BLL.Services
 
         public void SetPlayer(PlayerDto playerDto)
         {
+            if(playerDto is null)
+                throw new ArgumentNullException(nameof(playerDto), "The player value cannot be null.");
+            
             if (playerDto.Id == 0)
                 Create(playerDto);
             else
             {
-                var playerDb = _unitOfWork.PlayerRepository.GetById(playerDto.Id);
+                var playerDb = _unitOfWork.Players.GetById(playerDto.Id);
                 SetCurrentPlayer(playerDb);
             }
                

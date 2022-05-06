@@ -44,7 +44,7 @@ namespace DAL
             get => _foolNpcs is null ? _foolNpcs : new Repository<FoolNpc>(_context);
         }
 
-        public IPlayerRepository PlayerRepository
+        public IPlayerRepository Players
         {
             get => _players is null ? _players : new PlayerRepository(_context);
         }

@@ -27,7 +27,10 @@ namespace DAL.Repositories
 
         public Player GetById(int id)
         {
-            return _context.Player.FirstOrDefault(p => p.Id == id);
+            if(id > 0 && id < _context.Player.Count())
+                return _context.Player.FirstOrDefault(p => p.Id == id);
+            else
+                throw new ArgumentOutOfRangeException("The id is out of range.");
         }
 
         public void Update(Player player)

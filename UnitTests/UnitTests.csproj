@@ -76,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Guilds\FoolsGuildTests.cs" />
+    <Compile Include="Services\PlayerServiceTests.cs" />
     <Compile Include="Services\HistoryServiceTests.cs" />
     <Compile Include="Npcs\AssassinNpcTests.cs" />
     <Compile Include="Guilds\AssassinsGuildTests.cs" />
